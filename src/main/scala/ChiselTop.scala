@@ -27,7 +27,18 @@ class ChiselTop() extends Module {
   // use bi-directionals as input
   io.uio_oe := 0.U
 
-  io.uo_out := io.ui_in + io.uio_in
+  val add = WireDefault(0.U(7.W))
+  add := io.ui_in + io.uio_in
+
+  // Blink with 1 Hzq
+  val cntReg = RegInit(0.U(32.W))
+  val ledReg = RegInit(0.U(1.W))
+  cntReg := cntReg + 1.U
+  when (cntReg === 25000000.U) {
+    cntReg := 0.U
+    ledReg := ~ledReg
+  }
+  io.uo_out := ledReg ## add
 }
 
 object ChiselTop extends App {

@@ -19,8 +19,12 @@ module basys3_top (
 
     wire rst_n = ~reset; // Isn't that button low active anyway?
     wire ena = 1'b1;
-    // TODO: add a crude clock divider to slow down the clock to 50 MHz
-    wire clk = clock;
+    reg clk;
+    // a crude clock divider to get 50 MHz out of the 100 MHz clock
+    // Not recommended, but we know what we do here ;-)
+    always @(posedge clock) begin
+      clk <= ~clk;
+    end
     wire [7:0] ui_in = sw [7:0];
     wire [7:0] uo_out;
     wire [7:0] uio_in = sw [15:8];

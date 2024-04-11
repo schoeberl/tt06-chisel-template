@@ -2,7 +2,11 @@
 
 # Tiny Tapeout Chisel Project Template
 
-- [Read the documentation for project](docs/info.md)
+- Provide info on your project at: [Read the documentation for project](docs/info.md)
+
+This template is intended for projects written in the Chisel hardware construction language.
+To learn more about Chisel, visit the [Chisel website](https://www.chisel-lang.org/)
+or read the free [Chisel book](http://www.imm.dtu.dk/~masca/chisel-book.html).
 
 ## What is Tiny Tapeout?
 
@@ -13,7 +17,7 @@ To learn more and get started, visit https://tinytapeout.com.
 ## Chisel Projects
 
 1. Add your Chisel files to the `src` folder and below according the `sbt` conventions.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
+2. Edit the [info.yaml](info.yaml) and update information about your project
 3. Edit [docs/info.md](docs/info.md) and add a description of your project.
 4. Optionally, add a testbench to the `test` folder. See [test/README.md](test/README.md) for more information.
 

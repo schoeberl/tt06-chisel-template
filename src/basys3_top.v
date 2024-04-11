@@ -9,7 +9,7 @@
 
 module basys3_top (
     input  wire [15:0] sw,    // Switches
-    output  wire [7:0] led,   // LEDs
+    output  wire [7:0] led,   // LEDs (not part of the TT board)
     output  wire [6:0] seg,   // 7-segment
     output  wire dp,          // 7-segment
     output  wire [3:0] an,    // 7-segment
@@ -17,11 +17,7 @@ module basys3_top (
     input  wire reset         // reset - high active
 );
 
-    assign seg = 7'b0000000;
-    assign dp = 1'b0;
-    assign an = 4'b1110;
-
-    wire rst_n = ~reset;
+    wire rst_n = ~reset; // Isn't that button low active anyway?
     wire ena = 1'b1;
     // TODO: add a crude clock divider to slow down the clock to 50 MHz
     wire clk = clock;
@@ -42,6 +38,9 @@ module basys3_top (
           .rst_n  (rst_n)     // not reset
       );
 
+
     assign led = uo_out;
+    assign an = 4'b1110;
+    assign {dp, seg} = ~uo_out;
 
 endmodule

@@ -23,6 +23,10 @@ To learn more and get started, visit https://tinytapeout.com.
 
 The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
 
+## TODO
+
+ * Move all the testing to ChiselTest
+
 ## Enable GitHub actions to build the results page
 
 - [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
